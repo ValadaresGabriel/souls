@@ -11,7 +11,8 @@ public class MoveBlock : MonoBehaviour
     {
         BACK_FORTH,
         LOOP,
-        ONCE
+        ONCE,
+        RESET
     }
 
     //public Platform_Catcher platformCatcher;
@@ -103,10 +104,10 @@ public class MoveBlock : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(spriteRenderer.isVisible || startMovingOnlyWhenVisible)
-            OnBecameVisible();
-        else
-            OnBecameInvisible();
+        if(spriteRenderer.isVisible || !startMovingOnlyWhenVisible)
+                OnBecameVisible();
+            else
+                OnBecameInvisible();
 
         if (!m_Started)
             return;
@@ -114,6 +115,7 @@ public class MoveBlock : MonoBehaviour
         //no need to update we have a single node in the path
         if (m_Current == m_Next)
             return;
+
 
         if(m_WaitTime > 0)
         {
@@ -157,6 +159,10 @@ public class MoveBlock : MonoBehaviour
                                 m_Next -= 1;
                                 StopMoving();
                                 break;
+                            case MovingPlatformType.RESET:
+                                m_Next = 0;
+                                ResetPlatform();
+                                break;
                         }
                     }
                 }
@@ -178,6 +184,10 @@ public class MoveBlock : MonoBehaviour
                             case MovingPlatformType.ONCE:
                                 m_Next += 1;
                                 StopMoving();
+                                break;
+                            case MovingPlatformType.RESET:
+                                m_Next = 1;
+                                m_Dir = 1;
                                 break;
                         }
                     }
@@ -218,7 +228,7 @@ public class MoveBlock : MonoBehaviour
     }
 
     private void OnBecameVisible() {
-        // Debug.Log("Objeto está sendo visto!");
+        //Debug.Log("Objeto está sendo visto!");
         m_Started = true;
         m_VeryFirstStart = false;
     }

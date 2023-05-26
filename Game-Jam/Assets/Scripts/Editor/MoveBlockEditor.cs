@@ -65,6 +65,7 @@ public class MoveBlockEditor : Editor {
         EditorGUILayout.EndVertical();
 
         EditorGUILayout.PropertyField(m_PlatformTypeProperty);
+
         EditorGUILayout.PropertyField(m_PlatformSpeedProperty);
 
         EditorGUILayout.Separator();
