@@ -104,12 +104,10 @@ public class MoveBlock : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(startMovingOnlyWhenVisible){
-            if(spriteRenderer.isVisible)
+        if(spriteRenderer.isVisible || !startMovingOnlyWhenVisible)
                 OnBecameVisible();
             else
                 OnBecameInvisible();
-        }
 
         if (!m_Started)
             return;
