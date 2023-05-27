@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21772d745e6776844a837dcee2dfcdbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -20
+  rotateSpeed: 20
 --- !u!50 &3286684075727958938
 Rigidbody2D:
   serializedVersion: 4
@@ -274,7 +274,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3286684075727958935}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

@@ -7,6 +7,8 @@ public class AlphaChange : MonoBehaviour
     public float fadeDuration = 2f; // Duração da transição de fade
     public float targetAlpha = 1f; // Valor alpha final desejado
 
+    public bool guidanceXorY = true;
+
     public GameObject target;
     public GameObject startPoint;
 
@@ -22,17 +24,28 @@ public class AlphaChange : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log($"Target: {target.transform.position.x}");
-        Debug.Log($"Ponto: {startPoint.transform.position.x}");
-        if (target.transform.position.x >= startPoint.transform.position.x)
-        {
-            Debug.Log("Start");
-            myCoroutine = StartCoroutine(FadeAlpha());
-        }
-        if(spriteRenderer.color.a == targetAlpha && myCoroutine != null){
-            Debug.Log("para");
-            StopCoroutine(myCoroutine);
-            gameObject.SetActive(false);
+        if(guidanceXorY == true){
+            if (target.transform.position.x >= startPoint.transform.position.x)
+            {
+                Debug.Log("Start");
+                myCoroutine = StartCoroutine(FadeAlpha());
+            }
+            if(spriteRenderer.color.a == targetAlpha && myCoroutine != null){
+                Debug.Log("para");
+                StopCoroutine(myCoroutine);
+                gameObject.SetActive(false);
+            }
+        }else{
+            if (target.transform.position.y >= startPoint.transform.position.y)
+            {
+                Debug.Log("Start");
+                myCoroutine = StartCoroutine(FadeAlpha());
+            }
+            if(spriteRenderer.color.a == targetAlpha && myCoroutine != null){
+                Debug.Log("para");
+                StopCoroutine(myCoroutine);
+                gameObject.SetActive(false);
+            }
         }
     }
 
