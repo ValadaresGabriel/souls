@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogOwner: Lia
   message: Start 11
-  audioVoice: {fileID: 0}
+  audioVoice: {fileID: 8300000, guid: 31f1615f9c378c043aebc259d98d6e26, type: 3}
   isDialogContinue: 1

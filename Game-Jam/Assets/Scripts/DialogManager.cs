@@ -5,21 +5,31 @@ using UnityEngine;
 
 public class DialogManager : MonoBehaviour
 {
-    public List<DialogData> dialogDatas;
+    public static DialogManager Instance { get; private set; }
 
-    public AudioSource audioVoiceSource;
+    private AudioSource audioVoiceSource;
+
+    private DialogData currentDialog;
 
     [SerializeField] private GameObject dialogPanel;
 
     [SerializeField] private DialogConstructor dialogConstructor;
 
+    public List<DialogData> dialogDatas;
+
     public int dialogIndex = 0;
 
-    private DialogData currentDialog;
-
-    private void Start()
+    private void Awake()
     {
-        StartDialog();
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Update()
