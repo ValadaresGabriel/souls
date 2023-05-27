@@ -598,6 +598,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1960598707978243340}
   - component: {fileID: 510513656814927834}
+  - component: {fileID: 5473137096602218597}
+  - component: {fileID: 7713303781118431612}
   m_Layer: 0
   m_Name: BoxingGlove
   m_TagString: Untagged
@@ -647,6 +649,103 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   touch: 0
+--- !u!50 &5473137096602218597
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5343618660396395931}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!68 &7713303781118431612
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5343618660396395931}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.111, y: 0.162}
+  - {x: -0.11215863, y: 0.046625674}
+  - {x: -0.12400089, y: 0.04692465}
+  - {x: -0.12584215, y: -0.17142162}
+  - {x: -0.107561335, y: -0.17037582}
+  - {x: -0.11071265, y: -0.3160789}
+  - {x: -0.17315622, y: -0.37036297}
+  - {x: -0.24243478, y: -0.4636184}
+  - {x: -0.27549404, y: -0.53236437}
+  - {x: -0.30481642, y: -0.6390312}
+  - {x: -0.3395671, y: -0.7183437}
+  - {x: -0.35601404, y: -0.8148144}
+  - {x: -0.36277622, y: -0.8705163}
+  - {x: -0.36249828, y: -0.9235333}
+  - {x: -0.35763913, y: -0.9920833}
+  - {x: -0.3466546, y: -1.0418094}
+  - {x: -0.3320915, y: -1.0866311}
+  - {x: -0.3145763, y: -1.128348}
+  - {x: -0.29095438, y: -1.1805243}
+  - {x: -0.27115268, y: -1.2106458}
+  - {x: -0.24369152, y: -1.2399937}
+  - {x: -0.20554446, y: -1.2658974}
+  - {x: -0.14533557, y: -1.2980232}
+  - {x: -0.08835283, y: -1.3210537}
+  - {x: -0.0005894266, y: -1.3399148}
+  - {x: 0.073797934, y: -1.3513803}
+  - {x: 0.17767116, y: -1.3548032}
+  - {x: 0.27882385, y: -1.347017}
+  - {x: 0.38985735, y: -1.3181132}
+  - {x: 0.46435577, y: -1.2851278}
+  - {x: 0.5183055, y: -1.2550222}
+  - {x: 0.5682233, y: -1.2042314}
+  - {x: 0.5957287, y: -1.1556526}
+  - {x: 0.5983469, y: -1.1269044}
+  - {x: 0.6257046, y: -1.0454874}
+  - {x: 0.6362172, y: -1.0369151}
+  - {x: 0.7010735, y: -1.0071135}
+  - {x: 0.75165, y: -0.9461419}
+  - {x: 0.78494155, y: -0.8656763}
+  - {x: 0.79465884, y: -0.8049085}
+  - {x: 0.797812, y: -0.76791286}
+  - {x: 0.7893621, y: -0.6870749}
+  - {x: 0.7739143, y: -0.63874894}
+  - {x: 0.7384181, y: -0.5796371}
+  - {x: 0.7066474, y: -0.54686284}
+  - {x: 0.66157097, y: -0.49440378}
+  - {x: 0.5874087, y: -0.4499387}
+  - {x: 0.5054224, y: -0.42844757}
+  - {x: 0.4302485, y: -0.34118748}
+  - {x: 0.39368123, y: -0.3113479}
+  - {x: 0.39450324, y: -0.17276886}
+  - {x: 0.40711313, y: -0.16956109}
+  - {x: 0.40562314, y: 0.045771003}
+  - {x: 0.39173985, y: 0.047005177}
+  - {x: 0.39311254, y: 0.16243947}
+  - {x: -0.111, y: 0.162}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &5839940865019233563
 GameObject:
   m_ObjectHideFlags: 0

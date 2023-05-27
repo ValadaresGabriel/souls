@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 297238647697969969}
   - component: {fileID: 1631111728720280341}
+  - component: {fileID: 7974249208776337881}
   m_Layer: 0
   m_Name: Circle (3)
   m_TagString: Untagged
@@ -84,6 +85,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &7974249208776337881
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2955155425551264089}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &4517219754675297162
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6375316985486021248}
   - component: {fileID: 539910485656284887}
+  - component: {fileID: 2377713499081505254}
   m_Layer: 0
   m_Name: Circle (2)
   m_TagString: Untagged
@@ -168,6 +186,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &2377713499081505254
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4517219754675297162}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &5073460325515107498
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,6 +212,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7396142606514722553}
   - component: {fileID: 2554039460123747667}
+  - component: {fileID: 3820758966405691142}
   m_Layer: 0
   m_Name: Circle (4)
   m_TagString: Untagged
@@ -252,6 +287,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &3820758966405691142
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5073460325515107498}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &7829160276852302278
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7440675175113287121}
   - component: {fileID: 7445515881052961603}
+  - component: {fileID: 9092570602152700864}
   m_Layer: 0
   m_Name: Circle (1)
   m_TagString: Untagged
@@ -336,6 +388,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &9092570602152700864
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7829160276852302278}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &9034843835638460666
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,6 +415,7 @@ GameObject:
   - component: {fileID: 2114519800780501905}
   - component: {fileID: 5816148741688044283}
   - component: {fileID: 3652910376402494294}
+  - component: {fileID: 1686489188830118739}
   m_Layer: 0
   m_Name: LinePiece
   m_TagString: Untagged
@@ -439,3 +508,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   touch: 0
+--- !u!50 &1686489188830118739
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9034843835638460666}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
