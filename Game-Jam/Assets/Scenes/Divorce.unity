@@ -619,7 +619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21772d745e6776844a837dcee2dfcdbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 1
+  rotateSpeed: 70
 --- !u!212 &53545511
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5226,7 +5226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21772d745e6776844a837dcee2dfcdbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 1
+  rotateSpeed: 70
 --- !u!212 &476449415
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6481,7 +6481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21772d745e6776844a837dcee2dfcdbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 1
+  rotateSpeed: 70
 --- !u!212 &572020837
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8155,7 +8155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21772d745e6776844a837dcee2dfcdbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 1
+  rotateSpeed: 70
 --- !u!212 &670227131
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8761,7 +8761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21772d745e6776844a837dcee2dfcdbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 1
+  rotateSpeed: 70
 --- !u!212 &682543685
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10556,7 +10556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21772d745e6776844a837dcee2dfcdbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 1
+  rotateSpeed: 70
 --- !u!212 &821391368
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10871,7 +10871,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3286684075727958937, guid: f491edfe16ece614cbfa059d8c10a9c6, type: 3}
       propertyPath: rotateSpeed
-      value: -20
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f491edfe16ece614cbfa059d8c10a9c6, type: 3}
@@ -11815,7 +11815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21772d745e6776844a837dcee2dfcdbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 1
+  rotateSpeed: 70
 --- !u!212 &950591530
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20390,6 +20390,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3286684075727958937, guid: f491edfe16ece614cbfa059d8c10a9c6, type: 3}
+      propertyPath: rotateSpeed
+      value: -20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f491edfe16ece614cbfa059d8c10a9c6, type: 3}
 --- !u!4 &1733200055 stripped
@@ -22070,6 +22074,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3286684075727958937, guid: f491edfe16ece614cbfa059d8c10a9c6, type: 3}
+      propertyPath: rotateSpeed
+      value: -20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f491edfe16ece614cbfa059d8c10a9c6, type: 3}
 --- !u!4 &1907591455 stripped
@@ -23041,7 +23049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21772d745e6776844a837dcee2dfcdbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 1
+  rotateSpeed: 70
 --- !u!212 &2009697503
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -24779,7 +24787,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3286684075727958937, guid: f491edfe16ece614cbfa059d8c10a9c6, type: 3}
       propertyPath: rotateSpeed
-      value: -20
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f491edfe16ece614cbfa059d8c10a9c6, type: 3}
