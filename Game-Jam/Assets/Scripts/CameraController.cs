@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
 
     private void LateUpdate()
     {
-        Vector3 desiredPosition = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y, transform.position.z);
+        Vector3 desiredPosition = new Vector3(transform.position.x + speed * Time.fixedDeltaTime, transform.position.y, transform.position.z);
         transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
     }
 

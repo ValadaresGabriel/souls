@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 targetPosition;
 
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
 
     private void Start()
     {
