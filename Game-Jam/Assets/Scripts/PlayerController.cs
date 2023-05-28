@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,10 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] private float velocity;
+
+    [SerializeField] private float respawnTime;
+
+    [SerializeField] private bool isDead;
 
     private Vector2 targetPosition;
 
@@ -18,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(KeyCode.Z) && isDead == false)
         {
             targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
@@ -31,5 +36,25 @@ public class PlayerController : MonoBehaviour
             Vector2 position = Vector2.MoveTowards(rb.position, targetPosition, velocity * Time.fixedDeltaTime);
             rb.MovePosition(position);
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.transform.CompareTag("Obstacle"))
+        {
+            isDead = true;
+            StartCoroutine(Respawn());
+        }
+    }
+
+    IEnumerator Respawn()
+    {
+        SceneTransitionManager.Instance.StartTransition();
+
+        yield return new WaitForSeconds(respawnTime);
+
+        transform.position = CheckpointManager.Instance.LastCheckpoint;
+
+        isDead = false;
     }
 }
