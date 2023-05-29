@@ -7539,7 +7539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f96ec094f3fc2ba4193437482517b234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   touch: 0
 --- !u!4 &1725949921 stripped
 Transform:
@@ -7770,7 +7770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f96ec094f3fc2ba4193437482517b234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
   touch: 0
 --- !u!1 &1849749965
 GameObject:
