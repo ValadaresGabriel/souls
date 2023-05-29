@@ -16,13 +16,22 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    private Renderer rendererExtension;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rendererExtension = GetComponent<Renderer>();
     }
 
     private void Update()
     {
+        if (!rendererExtension.IsVisibleFrom(Camera.main))
+        {
+            isDead = true;
+            StartCoroutine(Respawn());
+        }
+
         if (Input.GetKey(KeyCode.Z) && isDead == false)
         {
             targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
