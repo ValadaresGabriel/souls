@@ -12,6 +12,8 @@ public class CameraController : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().isDead == true || DialogManager.Instance.isDialogPlaying) return;
+
         Vector3 desiredPosition = new Vector3(transform.position.x + speed * Time.fixedDeltaTime, transform.position.y, transform.position.z);
         transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
     }

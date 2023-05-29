@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float respawnTime;
 
-    [SerializeField] private bool isDead;
+    [SerializeField] public bool isDead;
 
     private Vector2 targetPosition;
 
@@ -26,15 +26,19 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (!rendererExtension.IsVisibleFrom(Camera.main))
+        if (!rendererExtension.IsVisibleFrom(Camera.main) && isDead == false)
         {
             isDead = true;
             StartCoroutine(Respawn());
         }
 
-        if (Input.GetKey(KeyCode.Z) && isDead == false)
+        if (Input.GetKey(KeyCode.Z) && isDead == false && DialogManager.Instance.isDialogPlaying == false)
         {
             targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
+        else if (DialogManager.Instance.isDialogPlaying && Input.GetKeyDown(KeyCode.Z))
+        {
+            DialogManager.Instance.NextDialog();
         }
     }
 
@@ -49,7 +53,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.transform.CompareTag("Obstacle"))
+        if (other.transform.CompareTag("Obstacle") && isDead == false)
         {
             isDead = true;
             StartCoroutine(Respawn());
@@ -58,11 +62,24 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Respawn()
     {
+        if (isDead == false) yield break;
+
+        Debug.Log("Chamou Respawn");
+
         SceneTransitionManager.Instance.StartTransition();
 
         yield return new WaitForSeconds(respawnTime);
 
+        rb.velocity = Vector2.zero;
+        targetPosition = CheckpointManager.Instance.LastCheckpoint;
         transform.position = CheckpointManager.Instance.LastCheckpoint;
+
+        // Mova a posição da câmera para a posição do jogador
+        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z);
+
+        // Ajuste a posição x da câmera com base na largura da câmera
+        float cameraWidth = Camera.main.orthographicSize * 2.0f * Screen.width / Screen.height;
+        Camera.main.transform.position = new Vector3(transform.position.x + cameraWidth / 4, Camera.main.transform.position.y, Camera.main.transform.position.z);
 
         isDead = false;
     }

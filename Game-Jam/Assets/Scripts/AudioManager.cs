@@ -30,7 +30,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioSource gameAudioSource;
 
-    private Dictionary<string, AudioClip> dictGameAudios;
+    private Dictionary<string, AudioClip> dictGameAudios = new Dictionary<string, AudioClip>();
 
     public AudioSource[] audioSource;
 
@@ -46,9 +46,12 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        foreach (var audio in gameAudios)
+        if (gameAudios != null)
         {
-            dictGameAudios.Add(audio.name, audio.audioClip);
+            foreach (var audio in gameAudios)
+            {
+                dictGameAudios.Add(audio.name, audio.audioClip);
+            }
         }
     }
 
@@ -75,6 +78,7 @@ public class AudioManager : MonoBehaviour
         {
             this.sceneName = sceneName;
             gameAudioSource.clip = dictGameAudios[sceneName];
+            gameAudioSource.Play();
         }
     }
 
