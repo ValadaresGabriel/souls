@@ -1875,6 +1875,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8947904079203338516, guid: 161bacc9178a9a04b901a2d32fe71b6b, type: 3}
+      propertyPath: dialogDatas.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8947904079203338517, guid: 161bacc9178a9a04b901a2d32fe71b6b, type: 3}
       propertyPath: m_Name
       value: DialogManager
