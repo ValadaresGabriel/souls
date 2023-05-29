@@ -19,6 +19,8 @@ public class DialogManager : MonoBehaviour
 
     public int dialogIndex = 0;
 
+    public bool isDialogPlaying;
+
     private void Awake()
     {
         if (Instance == null)
@@ -50,6 +52,7 @@ public class DialogManager : MonoBehaviour
         if (dialogPanel.activeSelf == false)
         {
             dialogPanel.SetActive(true);
+            isDialogPlaying = true;
         }
 
         currentDialog = dialogDatas[dialogIndex];
@@ -65,13 +68,16 @@ public class DialogManager : MonoBehaviour
 
     public void NextDialog()
     {
-        if (audioVoiceSource.isPlaying) return;
+        if (audioVoiceSource != null && audioVoiceSource.clip != null && audioVoiceSource.isPlaying) return;
+
+        if (isDialogPlaying == false || dialogPanel.activeSelf == false) return;
 
         dialogIndex++;
 
         if (!currentDialog.isDialogContinue)
         {
             dialogPanel.SetActive(false);
+            isDialogPlaying = false;
             return;
         }
 

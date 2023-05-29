@@ -2386,9 +2386,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7497486610890604509, guid: 6672240bcc2261645814ed096382f4f4, type: 3}
+      propertyPath: gameAudios.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7497486610890604509, guid: 6672240bcc2261645814ed096382f4f4, type: 3}
+      propertyPath: gameAudios.Array.data[1].name
+      value: Marriage
+      objectReference: {fileID: 0}
+    - target: {fileID: 7497486610890604509, guid: 6672240bcc2261645814ed096382f4f4, type: 3}
+      propertyPath: gameAudios.Array.data[2].name
+      value: Marriage
+      objectReference: {fileID: 0}
+    - target: {fileID: 7497486610890604509, guid: 6672240bcc2261645814ed096382f4f4, type: 3}
+      propertyPath: gameAudios.Array.data[3].name
+      value: Marriage
+      objectReference: {fileID: 0}
+    - target: {fileID: 7497486610890604509, guid: 6672240bcc2261645814ed096382f4f4, type: 3}
+      propertyPath: gameAudios.Array.data[1].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 06c27994041628a438954b2f6905b1dc, type: 3}
+    - target: {fileID: 7497486610890604509, guid: 6672240bcc2261645814ed096382f4f4, type: 3}
+      propertyPath: gameAudios.Array.data[2].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 06c27994041628a438954b2f6905b1dc, type: 3}
+    - target: {fileID: 7497486610890604509, guid: 6672240bcc2261645814ed096382f4f4, type: 3}
+      propertyPath: gameAudios.Array.data[3].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 06c27994041628a438954b2f6905b1dc, type: 3}
     - target: {fileID: 7497486610890604514, guid: 6672240bcc2261645814ed096382f4f4, type: 3}
       propertyPath: m_Name
       value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8883598166581540408, guid: 6672240bcc2261645814ed096382f4f4, type: 3}
+      propertyPath: BypassEffects
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8883598166581540408, guid: 6672240bcc2261645814ed096382f4f4, type: 3}
+      propertyPath: BypassReverbZones
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8883598166581540408, guid: 6672240bcc2261645814ed096382f4f4, type: 3}
+      propertyPath: BypassListenerEffects
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6672240bcc2261645814ed096382f4f4, type: 3}

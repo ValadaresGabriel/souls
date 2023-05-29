@@ -114,9 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57ad2ba7b161ffe46a552f6228dc8573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionTime: 1.4
+  transitionTime: 1.8
   hideScene: {fileID: 5807189746174447751}
-  showScene: {fileID: 0}
 --- !u!1 &5807189746174447751
 GameObject:
   m_ObjectHideFlags: 0
