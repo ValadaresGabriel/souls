@@ -6,12 +6,36 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: 87f2458eea6d1d945a7fe8e682c148f9
+  - enabled: 1
     path: Assets/Scenes/Beginning.unity
     guid: 1ab06167ac4112344b0a0ba08ab78811
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: c644b8ffdb68cec4c82f040151386127
   - enabled: 1
+    path: Assets/Scenes/Marriage.unity
+    guid: 6cc3e164e5d97d441a183e75104f5dc5
+  - enabled: 1
+    path: Assets/Scenes/Fliperama.unity
+    guid: 4531decfccc170d439fee52b05bc525e
+  - enabled: 1
+    path: Assets/Scenes/Graduation.unity
+    guid: 450962b8870a19c4a930f2cf3ba43410
+  - enabled: 1
+    path: Assets/Scenes/Divorce.unity
+    guid: 2a9de1640bfc96444891dfd20f434cfd
+  - enabled: 1
+    path: Assets/Scenes/Childhood.unity
+    guid: 0edb27ce34337674db091ebc7406af37
+  - enabled: 1
+    path: Assets/Scenes/About Angela.unity
+    guid: 032c44a4a49916a4aa109653a066b59c
+  - enabled: 1
+    path: Assets/Scenes/Nick.unity
+    guid: 8c43a917c2f61ae42844b145dc8b182d
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   m_configObjects: {}
