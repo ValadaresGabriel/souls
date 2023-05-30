@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.UIElements;
 [SelectionBase]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
@@ -25,7 +22,7 @@ public class MoveBlock : MonoBehaviour
     [HideInInspector]
     public Vector3[] localNodes = new Vector3[1];
 
-    public Vector3[] inspector_worldNode { get {return worldNode; } }
+    public Vector3[] inspector_worldNode { get { return worldNode; } }
 
     protected Vector3[] worldNode;
 
@@ -69,7 +66,7 @@ public class MoveBlock : MonoBehaviour
 
         /*if (platformCatcher == null)
             platformCatcher = GetComponent<Platform_Catcher>();*/
-    
+
         //Allow to make platform only move when they became visible
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -104,10 +101,10 @@ public class MoveBlock : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(spriteRenderer.isVisible || !startMovingOnlyWhenVisible)
-                OnBecameVisible();
-            else
-                OnBecameInvisible();
+        if (spriteRenderer.isVisible || !startMovingOnlyWhenVisible)
+            OnBecameVisible();
+        else
+            OnBecameInvisible();
 
         if (!m_Started)
             return;
@@ -117,7 +114,7 @@ public class MoveBlock : MonoBehaviour
             return;
 
 
-        if(m_WaitTime > 0)
+        if (m_WaitTime > 0)
         {
             m_WaitTime -= Time.deltaTime;
             return;
@@ -125,13 +122,13 @@ public class MoveBlock : MonoBehaviour
 
         float distanceToGo = speed * Time.deltaTime;
 
-        while(distanceToGo > 0)
+        while (distanceToGo > 0)
         {
 
             Vector2 direction = worldNode[m_Next] - transform.position;
 
             float dist = distanceToGo;
-            if(direction.sqrMagnitude < dist * dist)
+            if (direction.sqrMagnitude < dist * dist)
             {   //we have to go farther than our current goal point, so we set the distance to the remaining distance
                 //then we change the current & next indexes
                 dist = direction.magnitude;
@@ -146,7 +143,7 @@ public class MoveBlock : MonoBehaviour
                     if (m_Next >= worldNode.Length)
                     { //we reach the end
 
-                        switch(platformType)
+                        switch (platformType)
                         {
                             case MovingPlatformType.BACK_FORTH:
                                 m_Next = worldNode.Length - 2;
@@ -169,7 +166,7 @@ public class MoveBlock : MonoBehaviour
                 else
                 {
                     m_Next -= 1;
-                    if(m_Next < 0)
+                    if (m_Next < 0)
                     { //reached the beginning again
 
                         switch (platformType)
@@ -196,7 +193,7 @@ public class MoveBlock : MonoBehaviour
 
             m_Velocity = direction.normalized * dist;
 
-            transform.position +=  new Vector3(direction.normalized.x * dist, direction.normalized.y * dist, 0f);
+            transform.position += new Vector3(direction.normalized.x * dist, direction.normalized.y * dist, 0f);
             m_Rigidbody2D.MovePosition(m_Rigidbody2D.position + m_Velocity);
             //m_Rigidbody2D.AddForce(m_Velocity, ForceMode2D.Force);
             //platformCatcher.MoveCaughtObjects (m_Velocity);
@@ -206,7 +203,7 @@ public class MoveBlock : MonoBehaviour
             distanceToGo -= dist;
 
             // we have some wait time set, that mean we reach a point where we have to wait. So no need to continue to move the platform, early exit.
-            if (m_WaitTime > 0.001f) 
+            if (m_WaitTime > 0.001f)
                 break;
         }
     }
@@ -227,13 +224,15 @@ public class MoveBlock : MonoBehaviour
         Init();
     }
 
-    private void OnBecameVisible() {
+    private void OnBecameVisible()
+    {
         //Debug.Log("Objeto está sendo visto!");
         m_Started = true;
         m_VeryFirstStart = false;
     }
 
-    private void OnBecameInvisible() {
+    private void OnBecameInvisible()
+    {
         // Debug.Log("Objeto não está sendo visto!");
         m_Started = false;
         m_VeryFirstStart = false;

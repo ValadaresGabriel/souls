@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.98377687, g: 0.5221546, b: 0.34241328, a: 1}
+  m_IndirectSpecularColor: {r: 0.98536307, g: 0.5221542, b: 0.34241378, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1875,6 +1875,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5333446998849641816, guid: 161bacc9178a9a04b901a2d32fe71b6b, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8947904079203338516, guid: 161bacc9178a9a04b901a2d32fe71b6b, type: 3}
       propertyPath: dialogDatas.Array.size
       value: 159
@@ -2561,6 +2565,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8947904079203338519, guid: 161bacc9178a9a04b901a2d32fe71b6b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8947904079787957825, guid: 161bacc9178a9a04b901a2d32fe71b6b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8947904079787957825, guid: 161bacc9178a9a04b901a2d32fe71b6b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8947904079787957825, guid: 161bacc9178a9a04b901a2d32fe71b6b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8947904079787957886, guid: 161bacc9178a9a04b901a2d32fe71b6b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8947904080340990850, guid: 161bacc9178a9a04b901a2d32fe71b6b, type: 3}
+      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

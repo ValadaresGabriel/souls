@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 14 Start - Nick 7
   m_EditorClassIdentifier: 
   dialogOwner: Traveling Soul
-  message: I..I can't remember anything. I just remember having to click Z and move
-    the mouse to move!
+  message: I..I can't remember anything. I just remember having to click and/or click
+    and hold Z and move the mouse to move!
   audioVoice: {fileID: 0}
   isDialogContinue: 0

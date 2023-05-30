@@ -57,6 +57,7 @@ public class DialogManager : MonoBehaviour
 
         currentDialog = dialogDatas[dialogIndex];
 
+        dialogConstructor.SetDialogOwner(currentDialog.dialogOwner);
         dialogConstructor.SetDialogMessage(currentDialog.message);
 
         if (currentDialog.audioVoice != null)
