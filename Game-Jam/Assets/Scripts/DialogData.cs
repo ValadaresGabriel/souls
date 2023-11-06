@@ -18,4 +18,7 @@ public class DialogData : ScriptableObject
 
     [Tooltip("Flag que dirá se o diálogo continuará ou não")]
     public bool isDialogContinue = true;
+
+    public bool goToTimeInTimeline = false;
+    public float timeToGoToTimeline;
 }

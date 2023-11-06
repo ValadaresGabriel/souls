@@ -4,18 +4,28 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float speed = 15f;
+    public float speed = 5f;
 
-    public float smoothSpeed = 0.125f;
+    private PlayerController player;
 
-    private Vector3 velocity = Vector3.zero;
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+
+        if (player == null)
+        {
+            Debug.LogError("PlayerController não encontrado no objeto com a tag 'Player'");
+        }
+    }
 
     private void LateUpdate()
     {
-        if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().isDead == true || DialogManager.Instance.isDialogPlaying) return;
-
-        Vector3 desiredPosition = new Vector3(transform.position.x + speed * Time.fixedDeltaTime, transform.position.y, transform.position.z);
-        transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
+        // Verifica se o jogador está morto ou se um diálogo está ativo antes de mover a câmera.
+        if (player != null && !player.IsDead && !DialogManager.Instance.isDialogPlaying)
+        {
+            Vector3 newPosition = transform.position;
+            newPosition.x += speed * Time.deltaTime;
+            transform.position = newPosition;
+        }
     }
-
 }

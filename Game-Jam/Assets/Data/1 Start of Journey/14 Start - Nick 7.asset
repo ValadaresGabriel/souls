@@ -17,3 +17,5 @@ MonoBehaviour:
     and hold Z and move the mouse to move!
   audioVoice: {fileID: 0}
   isDialogContinue: 0
+  goToTimeInTimeline: 1
+  timeToGoToTimeline: 62.9

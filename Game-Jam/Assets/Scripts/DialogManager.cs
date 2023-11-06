@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using TranscendenceStudios;
 using UnityEngine;
 
 public class DialogManager : MonoBehaviour
@@ -20,6 +22,8 @@ public class DialogManager : MonoBehaviour
     public int dialogIndex = 0;
 
     public bool isDialogPlaying;
+
+    private Coroutine displayDialogMessageCoroutine;
 
     private void Awake()
     {
@@ -49,6 +53,8 @@ public class DialogManager : MonoBehaviour
 
     private void PlayDialog()
     {
+        if (displayDialogMessageCoroutine != null) return;
+
         if (dialogPanel.activeSelf == false)
         {
             dialogPanel.SetActive(true);
@@ -58,7 +64,8 @@ public class DialogManager : MonoBehaviour
         currentDialog = dialogDatas[dialogIndex];
 
         dialogConstructor.SetDialogOwner(currentDialog.dialogOwner);
-        dialogConstructor.SetDialogMessage(currentDialog.message);
+        displayDialogMessageCoroutine = StartCoroutine(DisplayTextByTime(currentDialog.message));
+        // dialogConstructor.SetDialogMessage(currentDialog.message);
 
         if (currentDialog.audioVoice != null)
         {
@@ -69,6 +76,8 @@ public class DialogManager : MonoBehaviour
 
     public void NextDialog()
     {
+        if (displayDialogMessageCoroutine != null) return;
+
         if (audioVoiceSource != null && audioVoiceSource.clip != null && audioVoiceSource.isPlaying) return;
 
         if (isDialogPlaying == false || dialogPanel.activeSelf == false) return;
@@ -79,6 +88,11 @@ public class DialogManager : MonoBehaviour
         {
             dialogPanel.SetActive(false);
             isDialogPlaying = false;
+
+            if (currentDialog.goToTimeInTimeline)
+            {
+                TimelineManager.Instance.GoToTimeInTimeline(currentDialog.timeToGoToTimeline);
+            }
             return;
         }
 
@@ -86,6 +100,20 @@ public class DialogManager : MonoBehaviour
         {
             PlayDialog();
         }
+    }
+
+    private IEnumerator DisplayTextByTime(string dialogMessage)
+    {
+        string text = "";
+        foreach (char c in dialogMessage.ToCharArray())
+        {
+            text += c;
+            dialogConstructor.SetDialogMessage(text);
+            yield return new WaitForSeconds(.01f);
+        }
+
+        StopCoroutine(displayDialogMessageCoroutine);
+        displayDialogMessageCoroutine = null;
     }
 
 }

@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float respawnTime;
 
-    [SerializeField] public bool isDead;
+    public bool IsDead { get; private set; }
 
     private Vector2 targetPosition;
 
@@ -18,23 +18,39 @@ public class PlayerController : MonoBehaviour
 
     private Renderer rendererExtension;
 
+    private Camera mainCamera;
+
+    private Coroutine respawnCorroutine;
+
+    private const float PositionTolerance = 0.1f;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rendererExtension = GetComponent<Renderer>();
+        mainCamera = Camera.main;
     }
 
     private void Update()
     {
-        if (!rendererExtension.IsVisibleFrom(Camera.main) && isDead == false)
+        if (!rendererExtension.IsVisibleFrom(mainCamera) && IsDead == false)
         {
-            isDead = true;
-            StartCoroutine(Respawn());
+            IsDead = true;
+            if (respawnCorroutine == null)
+            {
+                respawnCorroutine = StartCoroutine(Respawn());
+            }
         }
 
-        if (Input.GetKey(KeyCode.Z) && isDead == false && DialogManager.Instance.isDialogPlaying == false)
+        if (DialogManager.Instance == null)
         {
-            targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Debug.LogWarning("DialogManager is null!");
+            return;
+        }
+
+        if (Input.GetKey(KeyCode.Z) && IsDead == false && DialogManager.Instance.isDialogPlaying == false)
+        {
+            targetPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         }
         else if (DialogManager.Instance.isDialogPlaying && Input.GetKeyDown(KeyCode.Z))
         {
@@ -44,7 +60,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (rb.position != targetPosition)
+        if ((rb.position - targetPosition).sqrMagnitude > PositionTolerance * PositionTolerance)
         {
             Vector2 position = Vector2.MoveTowards(rb.position, targetPosition, velocity * Time.fixedDeltaTime);
             rb.MovePosition(position);
@@ -53,34 +69,47 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.transform.CompareTag("Obstacle") && isDead == false)
+        if (other.transform.CompareTag("Obstacle") && IsDead == false)
         {
-            isDead = true;
-            StartCoroutine(Respawn());
+            IsDead = true;
+
+            if (respawnCorroutine == null)
+            {
+                respawnCorroutine = StartCoroutine(Respawn());
+            }
         }
     }
 
-    IEnumerator Respawn()
+    private IEnumerator Respawn()
     {
-        if (isDead == false) yield break;
-
         Debug.Log("Chamou Respawn");
 
-        SceneTransitionManager.Instance.StartTransition();
+        if (SceneTransitionManager.Instance != null)
+        {
+            SceneTransitionManager.Instance.StartTransition();
+        }
 
         yield return new WaitForSeconds(respawnTime);
 
         rb.velocity = Vector2.zero;
-        targetPosition = CheckpointManager.Instance.LastCheckpoint;
-        transform.position = CheckpointManager.Instance.LastCheckpoint;
 
-        // Mova a posição da câmera para a posição do jogador
-        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z);
+        if (CheckpointManager.Instance != null)
+        {
+            targetPosition = CheckpointManager.Instance.LastCheckpoint;
+            transform.position = CheckpointManager.Instance.LastCheckpoint;
+        }
 
-        // Ajuste a posição x da câmera com base na largura da câmera
-        float cameraWidth = Camera.main.orthographicSize * 2.0f * Screen.width / Screen.height;
-        Camera.main.transform.position = new Vector3(transform.position.x + cameraWidth / 4, Camera.main.transform.position.y, Camera.main.transform.position.z);
+        UpdateCameraPosition();
 
-        isDead = false;
+        respawnCorroutine = null;
+
+        IsDead = false;
+    }
+
+    private void UpdateCameraPosition()
+    {
+        // float cameraWidth = mainCamera.orthographicSize * 2.0f * Screen.width / Screen.height;
+        // mainCamera.transform.position = new Vector3(transform.position.x + cameraWidth / 4, transform.position.y, mainCamera.transform.position.z);
+        mainCamera.transform.position = new Vector3(CheckpointManager.Instance.LastCheckpoint.x, CheckpointManager.Instance.LastCheckpoint.y, mainCamera.transform.position.z);
     }
 }
