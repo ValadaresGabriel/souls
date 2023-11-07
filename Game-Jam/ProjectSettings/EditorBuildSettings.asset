@@ -17,9 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Marriage.unity
     guid: 6cc3e164e5d97d441a183e75104f5dc5
-  - enabled: 0
-    path: Assets/Scenes/Marriage/DialogMarriage.unity
-    guid: 08d0b2e800d365d489d245db13ece499
   - enabled: 1
     path: Assets/Scenes/Fliperama.unity
     guid: 4531decfccc170d439fee52b05bc525e
@@ -38,7 +35,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nick.unity
     guid: 8c43a917c2f61ae42844b145dc8b182d
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
   m_configObjects: {}

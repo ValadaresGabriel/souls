@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance { get; private set; }
 
     [SerializeField] private float velocity;
 
@@ -23,6 +24,20 @@ public class PlayerController : MonoBehaviour
     private Coroutine respawnCorroutine;
 
     private const float PositionTolerance = 0.1f;
+
+    private bool isRunningRespawnCoroutine = false;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {
@@ -82,7 +97,10 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Respawn()
     {
+        if (isRunningRespawnCoroutine) yield break;
+
         Debug.Log("Chamou Respawn");
+        isRunningRespawnCoroutine = true;
 
         if (SceneTransitionManager.Instance != null)
         {
@@ -97,14 +115,14 @@ public class PlayerController : MonoBehaviour
         {
             targetPosition = CheckpointManager.Instance.LastCheckpoint;
             transform.position = CheckpointManager.Instance.LastCheckpoint;
+            UpdateCameraPosition();
         }
 
-        UpdateCameraPosition();
-
-        respawnCorroutine = null;
-
         IsDead = false;
+        isRunningRespawnCoroutine = false;
+        respawnCorroutine = null;
     }
+
 
     private void UpdateCameraPosition()
     {

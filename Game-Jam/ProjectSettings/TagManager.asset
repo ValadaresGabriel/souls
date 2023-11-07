@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Base
   - Obstacle
+  - GameObject To Enable
+  - Fall Block
+  - EnableCanBeDestroyed
   layers:
   - Default
   - TransparentFX

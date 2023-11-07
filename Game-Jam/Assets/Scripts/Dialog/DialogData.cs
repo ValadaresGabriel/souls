@@ -21,4 +21,6 @@ public class DialogData : ScriptableObject
 
     public bool goToTimeInTimeline = false;
     public float timeToGoToTimeline;
+
+    public bool enableGameObjectOfScene = false;
 }

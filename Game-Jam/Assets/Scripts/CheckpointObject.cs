@@ -10,7 +10,10 @@ public class CheckpointObject : MonoBehaviour
     {
         if (other.transform.CompareTag("Player"))
         {
-            CheckpointManager.Instance.SetCheckpoint(checkpoint.position);
+            if (CheckpointManager.Instance != null)
+            {
+                CheckpointManager.Instance.SetCheckpoint(checkpoint.position);
+            }
         }
     }
 }

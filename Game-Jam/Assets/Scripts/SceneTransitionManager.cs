@@ -7,9 +7,8 @@ public class SceneTransitionManager : MonoBehaviour
 {
     public static SceneTransitionManager Instance { get; private set; }
 
-    [SerializeField] private float transitionTime = 1f;
-
-    [SerializeField] private GameObject hideScene;
+    [SerializeField] float transitionTime = 1f;
+    [SerializeField] Animator animator;
 
     private void Awake()
     {
@@ -36,21 +35,26 @@ public class SceneTransitionManager : MonoBehaviour
 
     IEnumerator SceneTransition(string scene)
     {
-        hideScene.SetActive(true);
+        animator.SetTrigger("In");
 
-        yield return new WaitForSeconds(transitionTime);
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(scene);
 
-        SceneManager.LoadScene(scene);
+        while (!asyncOperation.isDone)
+        {
+            yield return null;
+        }
 
-        hideScene.SetActive(false);
+        // SceneManager.LoadScene(scene);
+
+        animator.SetTrigger("Fade");
     }
 
     IEnumerator Transition()
     {
-        hideScene.SetActive(true);
+        animator.SetTrigger("In");
 
         yield return new WaitForSeconds(transitionTime);
 
-        hideScene.SetActive(false);
+        animator.SetTrigger("Fade");
     }
 }

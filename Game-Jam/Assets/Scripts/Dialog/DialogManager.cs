@@ -91,7 +91,20 @@ public class DialogManager : MonoBehaviour
 
             if (currentDialog.goToTimeInTimeline)
             {
-                TimelineManager.Instance.GoToTimeInTimeline(currentDialog.timeToGoToTimeline);
+                if (TimelineManager.Instance != null)
+                {
+                    TimelineManager.Instance.GoToTimeInTimeline(currentDialog.timeToGoToTimeline);
+                }
+            }
+
+            if (currentDialog.enableGameObjectOfScene)
+            {
+                if (EnableGameObjectManager.Instance != null)
+                {
+                    GameObject gameObjectToEnable = EnableGameObjectManager.Instance.gameObjectsToEnable[EnableGameObjectManager.Instance.index++];
+
+                    gameObjectToEnable.SetActive(true);
+                }
             }
             return;
         }
