@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TranscendenceStudios;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -8,24 +9,18 @@ public class PlayerController : MonoBehaviour
     public static PlayerController Instance { get; private set; }
 
     [SerializeField] private float velocity;
-
     [SerializeField] private float respawnTime;
+    [SerializeField] bool isInCutscene = false;
 
     public bool IsDead { get; private set; }
-
     private Vector2 targetPosition;
-
     private Rigidbody2D rb;
-
     private Renderer rendererExtension;
-
     private Camera mainCamera;
-
     private Coroutine respawnCorroutine;
-
+    private bool isRunningRespawnCoroutine = false;
     private const float PositionTolerance = 0.1f;
 
-    private bool isRunningRespawnCoroutine = false;
 
     private void Awake()
     {
@@ -44,11 +39,21 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rendererExtension = GetComponent<Renderer>();
         mainCamera = Camera.main;
+        isInCutscene = false;
     }
 
     private void Update()
     {
-        if (!rendererExtension.IsVisibleFrom(mainCamera) && IsDead == false)
+        if (TimelineManager.Instance != null && TimelineManager.Instance.playableDirector.state == UnityEngine.Playables.PlayState.Playing)
+        {
+            isInCutscene = true;
+        }
+        else
+        {
+            isInCutscene = false;
+        }
+
+        if (!rendererExtension.IsVisibleFrom(mainCamera) && IsDead == false && !isInCutscene)
         {
             IsDead = true;
             if (respawnCorroutine == null)
