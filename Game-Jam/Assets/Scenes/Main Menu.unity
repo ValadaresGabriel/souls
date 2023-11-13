@@ -1279,6 +1279,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 1812573053}
   creditsMenu: {fileID: 1772507538}
+  playButton: {fileID: 2135894922}
+  playButtonGameObject: {fileID: 2135894920}
 --- !u!1 &1529071912
 GameObject:
   m_ObjectHideFlags: 0

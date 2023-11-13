@@ -47,6 +47,8 @@ public class SceneTransitionManager : MonoBehaviour
         // SceneManager.LoadScene(scene);
 
         animator.SetTrigger("Fade");
+
+        PlayerPrefs.SetString("LevelToLoad", scene);
     }
 
     IEnumerator Transition()
